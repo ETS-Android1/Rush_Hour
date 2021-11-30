@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         play = findViewById(R.id.play);
         rules = findViewById(R.id.rules);
         scores = findViewById(R.id.scores);
+
+        if(MainActivity.player != null){
+            playerName.setText(MainActivity.player.getName());
+        }
     }
 
     //Method which set all listeners

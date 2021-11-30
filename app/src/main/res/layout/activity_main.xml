@@ -25,6 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="60dp"
             android:hint="Rentrez votre pseudo ici"/>
 

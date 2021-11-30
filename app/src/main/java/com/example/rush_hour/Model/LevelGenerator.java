@@ -852,11 +852,75 @@ public class LevelGenerator extends AppCompatActivity {
     }
 
     public void level19(){
+        //Initialize the constraint
+        ConstraintSet set = new ConstraintSet();
 
+        //Set all the Image with the guidelines
+        createCarConstraint(set, whiteCar_h, Y0, Y2, X2, X3);
+        createCarConstraint(set, pinkCar_h, Y0, Y2, X3, X4);
+        createCarConstraint(set, darkGreenCar_v, Y1, Y2, X4, X6);
+        createCarConstraint(set, lightGreenCar_v, Y2, Y3, X0, X2);
+        createCarConstraint(set, aquaCar_v, Y2, Y3, X2, X4);
+        createCarConstraint(set, greyCar_h, Y2, Y4, X4, X5);
+        createCarConstraint(set, blueTruck_h, Y2, Y5, X5, X6);
+        createCarConstraint(set, redTruck_v, Y5, Y6, X3, X6);
+        createCarConstraint(set, purpleCar_v, Y4, Y5, X3, X5);
+        createCarConstraint(set, orangeCar_v, Y5, Y6, X1, X3);
+        createCarConstraint(set, yellowTruck_h, Y3, Y6, X0, X1);
+
+        //Apply it to the constraint layout
+        set.applyTo(constraint);
+
+        //Instanciate Level
+        lvl = new Level(19);
+
+        lvl.setListOfVehicle(Arrays.asList(
+                new Car(new Position(1,2), new Position(0,2), Orientation.HORIZONTALE, whiteCar_h, true),
+                new Car(new Position(1,3), new Position(0,3), Orientation.HORIZONTALE, pinkCar_h, false),
+                new Car(new Position(1,5), new Position(1,4), Orientation.VERTICALE, darkGreenCar_v, false),
+                new Car(new Position(2,1), new Position(2,0), Orientation.VERTICALE, lightGreenCar_v, false),
+                new Car(new Position(2,3), new Position(2,2), Orientation.VERTICALE, aquaCar_v, false),
+                new Car(new Position(3,4), new Position(2,4), Orientation.HORIZONTALE, greyCar_h, false),
+                new Truck(new Position(4,5), new Position(3,5),new Position(2,5), Orientation.HORIZONTALE, blueTruck_h),
+                new Truck(new Position(5,5), new Position(5,4),new Position(5,3), Orientation.VERTICALE, redTruck_v),
+                new Car(new Position(4,4), new Position(4,3), Orientation.VERTICALE, purpleCar_v, false),
+                new Car(new Position(5,2), new Position(5,1), Orientation.VERTICALE, orangeCar_v, false),
+                new Truck(new Position(5,0), new Position(4,0),new Position(3,0), Orientation.HORIZONTALE, yellowTruck_h)));
     }
 
     public void level20(){
+        //Initialize the constraint
+        ConstraintSet set = new ConstraintSet();
 
+        //Set all the Image with the guidelines
+        createCarConstraint(set, whiteCar_h, Y0, Y2, X2, X3);
+        createCarConstraint(set, aquaCar_v, Y2, Y3, X2, X4);
+        createCarConstraint(set, pinkCar_v, Y3, Y4, X2, X4);
+        createCarConstraint(set, lightGreenCar_v, Y3, Y4, X0, X2);
+        createCarConstraint(set, orangeCar_h, Y4, Y6, X0, X1);
+        createCarConstraint(set, purpleCar_v, Y5, Y6, X2, X4);
+        createCarConstraint(set, darkGreenCar_v, Y4, Y5, X3, X5);
+        createCarConstraint(set, redCar_v, Y5, Y6, X4, X6);
+        createCarConstraint(set, yellowTruck_h, Y1, Y4, X4, X5);
+        createCarConstraint(set, greyCar_v, Y0, Y1, X4, X6);
+
+        //Apply it to the constraint layout
+        set.applyTo(constraint);
+
+        //Instanciate Level
+        lvl = new Level(20);
+
+        lvl.setListOfVehicle(Arrays.asList(
+                new Car(new Position(1,2), new Position(0,2), Orientation.HORIZONTALE, whiteCar_h, true),
+                new Car(new Position(2,3), new Position(2,2), Orientation.VERTICALE, aquaCar_v, false),
+                new Car(new Position(3,3), new Position(3,2), Orientation.VERTICALE, pinkCar_v, false),
+                new Car(new Position(3,1), new Position(3,0), Orientation.VERTICALE, lightGreenCar_v, false),
+                new Car(new Position(5,0), new Position(4,0), Orientation.HORIZONTALE, orangeCar_h, false),
+                new Car(new Position(5,3), new Position(5,2), Orientation.VERTICALE, purpleCar_v, false),
+                new Car(new Position(4,3), new Position(4,4), Orientation.VERTICALE, darkGreenCar_v, false),
+                new Car(new Position(5,5), new Position(5,4), Orientation.VERTICALE, redCar_v, false),
+                new Truck(new Position(3,4), new Position(2,4),new Position(1,4), Orientation.HORIZONTALE, yellowTruck_h),
+                new Car(new Position(0,5), new Position(0,4), Orientation.VERTICALE, greyCar_v, false)));
     }
 
     public void level21(){
