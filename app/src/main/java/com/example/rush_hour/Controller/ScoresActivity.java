@@ -92,7 +92,7 @@ public class ScoresActivity extends AppCompatActivity {
         };
 
         FirebaseRecyclerOptions<Player> options = new FirebaseRecyclerOptions.Builder<Player>().
-                setQuery(databaseReference.child("scoresDesJoueurs").orderByChild("numberStars").limitToFirst(50), parser).build();
+                setQuery(databaseReference.child("scoresDesJoueurs").orderByChild("reverse").limitToFirst(50), parser).build();
 
         firebaseAdapter = new FirebaseRecyclerAdapter<Player, ScoreViewHolder>(options) {
             @Override

@@ -5,12 +5,14 @@ public class Player {
     //Attributes
     private String name;
     private int numberStars;
+    private int reverse;
     private String id;
 
     //Constructor
     public Player (String name, int numberStars){
         this.name = name;
         this.numberStars = numberStars;
+        this.reverse = -numberStars;
     }
 
     public Player(){
@@ -26,6 +28,10 @@ public class Player {
         return numberStars;
     }
 
+    public int getReverse(){
+        return reverse;
+    }
+
     public String getId() {
         return id;
     }
@@ -33,6 +39,7 @@ public class Player {
     //Setters
     public void setNumberStars(int numberStars){
         this.numberStars = numberStars;
+        this.reverse = -numberStars;
     }
 
     public void setId(String id){

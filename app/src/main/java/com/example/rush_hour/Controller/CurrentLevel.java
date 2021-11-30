@@ -325,6 +325,8 @@ public class CurrentLevel extends AppCompatActivity{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("numberStars").setValue(
                         Math.toIntExact((Long) firebaseDs.child("numberStars").getValue()) + MainActivity.player.getNumberStars());
+                myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("reverse").setValue(
+                        Math.toIntExact((Long) firebaseDs.child("reverse").getValue()) + MainActivity.player.getReverse());
             }
         }
 
