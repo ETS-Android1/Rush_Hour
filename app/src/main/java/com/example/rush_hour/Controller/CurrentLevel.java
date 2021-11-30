@@ -117,7 +117,7 @@ public class CurrentLevel extends AppCompatActivity{
         Method method = null;
 
         try {
-            method = lvlGenerator.getClass().getMethod(getIntent().getStringExtra("Name of the level"));
+            method = lvlGenerator.getClass().getMethod(getIntent().getStringExtra("Name of the level").replace(" ", "").toLowerCase());
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }

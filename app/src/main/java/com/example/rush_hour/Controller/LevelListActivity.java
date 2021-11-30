@@ -135,7 +135,7 @@ public class LevelListActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intention = new Intent(LevelListActivity.this, CurrentLevel.class);
-                intention.putExtra("Name of the level", button.getText().toString().replace(" ", "").toLowerCase());
+                intention.putExtra("Name of the level", button.getText());
                 startActivity(intention);
 
             }
