@@ -57,10 +57,6 @@ public class MainActivity extends AppCompatActivity {
         play = findViewById(R.id.play);
         rules = findViewById(R.id.rules);
         scores = findViewById(R.id.scores);
-
-        if(MainActivity.player != null){
-            playerName.setText(MainActivity.player.getName());
-        }
     }
 
     //Method which set all listeners
@@ -70,18 +66,9 @@ public class MainActivity extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Check if the player has a name
-                if(playerName.getText() != null && !playerName.getText().toString().trim().equals("")){
 
-                    player = new Player(playerName.getText().toString(), 0);
-
-                    Intent intention = new Intent(MainActivity.this, LevelListActivity.class);
-                    startActivity(intention);
-                }
-
-                else {
-                    Toast.makeText(getApplicationContext(), "Rentrez un pseudo !", Toast.LENGTH_SHORT).show();
-                }
+                Intent intention = new Intent(MainActivity.this, LevelListActivity.class);
+                startActivity(intention);
             }
         });
 
@@ -121,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         } else {
             playerName.setText(playerName.getText() + firebaseUser.getDisplayName());
+            player = new Player(firebaseUser.getDisplayName(), 0);
         }
     }
 }
