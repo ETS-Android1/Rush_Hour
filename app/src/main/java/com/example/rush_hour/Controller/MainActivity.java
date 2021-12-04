@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void bindUI(){
         playerName = findViewById(R.id.playerName);
+        playerName.setSingleLine();
         play = findViewById(R.id.play);
         rules = findViewById(R.id.rules);
         scores = findViewById(R.id.scores);
