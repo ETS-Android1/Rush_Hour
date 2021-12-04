@@ -9,20 +9,27 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rush_hour.Model.Player;
 import com.example.rush_hour.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     //Attributes in Layout
-    private EditText playerName;
+    private TextView playerName;
     private Button play;
     private Button rules;
     private Button scores;
 
     public static Player player;
+
+    //Firebase
+    public FirebaseAuth firebaseAuth;
+    public FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
         bindUI();
 
+        firebaseAuthentification();
+
         setListeners();
 
     }
 
     private void bindUI(){
         playerName = findViewById(R.id.playerName);
-        playerName.setSingleLine();
         play = findViewById(R.id.play);
         rules = findViewById(R.id.rules);
         scores = findViewById(R.id.scores);
@@ -100,5 +108,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         super.onBackPressed();
+    }
+
+    //Ask the user to connect with google
+    private void firebaseAuthentification(){
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+
+        if(firebaseUser == null){
+            startActivity(new Intent(this, SignInActivity.class));
+            finish();
+            return;
+        } else {
+            playerName.setText(playerName.getText() + firebaseUser.getDisplayName());
+        }
     }
 }

@@ -31,7 +31,7 @@
             android:textColor="@color/black"
             android:textSize="50dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/playerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:gravity="center"
             android:textSize="20sp"
             android:textColor="@color/black"
-            android:hint="Rentrez votre pseudo ici"
+            android:text="Vous êtes connecté sous : "
             android:textColorHint="@color/black"/>
 
         <Button

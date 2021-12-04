@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rush_hour">
         <activity
+            android:name=".Controller.SignInActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".Controller.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
