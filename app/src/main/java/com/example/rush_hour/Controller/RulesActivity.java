@@ -15,6 +15,10 @@ public class RulesActivity extends AppCompatActivity {
     //Attributes
     private Button goBack;
 
+    /**
+     * OnCreate method which setup the entire Activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,16 +33,22 @@ public class RulesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rules);
 
         bindUI();
-
         setListeners();
     }
 
+    /**
+     * Method which make the link between user interface and code
+     */
     private void bindUI(){
         goBack = findViewById(R.id.goBack);
     }
 
+    /**
+     * Method which set up all listeners
+     */
     private void setListeners() {
 
+        //Method which go on the main activity
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

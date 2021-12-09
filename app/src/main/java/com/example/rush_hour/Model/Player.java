@@ -15,6 +15,7 @@ public class Player {
         this.reverse = -numberStars;
     }
 
+    //Default constructor
     public Player(){
         super();
     }

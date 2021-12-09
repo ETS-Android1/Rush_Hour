@@ -12,6 +12,7 @@ public class ScoreViewHolder extends RecyclerView.ViewHolder {
     private TextView score_pseudo;
     private TextView score_numberStar;
 
+    //Constructor
     public ScoreViewHolder(View itemView) {
         super(itemView);
 

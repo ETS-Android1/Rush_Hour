@@ -37,21 +37,7 @@ public abstract class Vehicle {
         return img;
     }
 
-    //Setters
-    public void setAhead(Position ahead) {
-        this.ahead = ahead;
-    }
-
-    public void setBack(Position back) {
-        this.back = back;
-    }
-
-    public void setImg(ImageView img) {
-        this.img = img;
-    }
-
     //Abstract Methods
-
     public abstract void moveUp();
     public abstract void moveDown();
     public abstract void moveLeft();

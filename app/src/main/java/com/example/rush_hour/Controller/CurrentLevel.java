@@ -49,24 +49,28 @@ public class CurrentLevel extends AppCompatActivity{
     public static int SCREEN_WIDTH;
 
     //Timer
-    Chronometer timer;
+    private Chronometer timer;
 
     //Music
-    MusicManager musicFond;
-    MusicManager musicKlaxon;
+    private MusicManager musicFond;
+    private MusicManager musicKlaxon;
 
     //Constraint
-    ConstraintLayout constraint;
+    private ConstraintLayout constraint;
 
     //Level Generator
-    LevelGenerator lvlGenerator;
+    private LevelGenerator lvlGenerator;
 
     //Firebase
-    boolean isFound = false;
-    DataSnapshot firebaseDs;
-    FirebaseDatabase db = FirebaseDatabase.getInstance("https://rush-hour-9cbef-default-rtdb.europe-west1.firebasedatabase.app/");
-    DatabaseReference myRef = db.getReference();
+    private boolean isFound = false;
+    private DataSnapshot firebaseDs;
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://rush-hour-9cbef-default-rtdb.europe-west1.firebasedatabase.app/");
+    private DatabaseReference myRef = db.getReference();
 
+    /**
+     * OnCreate method which setup the entire Activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -83,10 +87,12 @@ public class CurrentLevel extends AppCompatActivity{
         bindUI();
         callMethodWithExtra();
         setMusicAndTimer();
-
         setListeners();
     }
 
+    /**
+     * Method which set up the timer (for the level) and the music
+     */
     private void setMusicAndTimer(){
         musicFond = new MusicManager(this);
         musicFond.start();
@@ -98,6 +104,9 @@ public class CurrentLevel extends AppCompatActivity{
         timer.start();
     }
 
+    /**
+     * Method which make the link between user interface and code
+     */
     private void bindUI(){
         victory = findViewById(R.id.victory);
         timer = findViewById(R.id.timer);
@@ -105,23 +114,29 @@ public class CurrentLevel extends AppCompatActivity{
         star1 = findViewById(R.id.star1);
         star2 = findViewById(R.id.star2);
         star3 = findViewById(R.id.star3);
-        goBackButton = (Button) findViewById(R.id.goBackButton);
+        goBackButton = findViewById(R.id.goBackButton);
         constraint = findViewById(R.id.constraint);
         name_level.setText(getIntent().getStringExtra("Name of the level"));
         goBackButton.setVisibility(View.GONE);
     }
 
+    /**
+     * Method which invoke the right level in terms of the button the user clicked on
+     */
     private void callMethodWithExtra(){
-        lvlGenerator = new LevelGenerator(this);
 
+        //Init the levelGenerator
+        lvlGenerator = new LevelGenerator(this);
         Method method = null;
 
+        //Try to have the right method thanks to the extra puted in the intent
         try {
             method = lvlGenerator.getClass().getMethod(getIntent().getStringExtra("Name of the level").replace(" ", "").toLowerCase());
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
 
+        //Invoke the method on the levelGenerator
         try {
             method.invoke(lvlGenerator);
         } catch (IllegalAccessException e) {
@@ -131,13 +146,17 @@ public class CurrentLevel extends AppCompatActivity{
         }
     }
 
-    //Method which set all listeners
+    /**
+     * Method which set up all listeners
+     */
     public void setListeners(){
 
+        //Enable the level's cars to move on onTouch event
         for (Vehicle car: lvlGenerator.getLvl().getListOfVehicle()) {
             move(car);
         }
 
+        //Try to have the width of the screen when the layout has loaded
         constraint.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -146,15 +165,19 @@ public class CurrentLevel extends AppCompatActivity{
             }
         });
 
+        //Add a listener to my database to find if player's name is alreday in the database
         myRef.child("scoresDesJoueurs").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
                 List<String> list = new ArrayList<>();
                 for(DataSnapshot ds : snapshot.getChildren()){
+
+                    //Put all player into a list
                     String uid = ds.child("name").getValue().toString();
                     list.add(uid);
 
+                    //If the player has been found, we memorized the snapshot
                     if(MainActivity.player.getName().compareTo(uid) == 0) {
                         isFound = true;
                         firebaseDs = ds;
@@ -169,6 +192,7 @@ public class CurrentLevel extends AppCompatActivity{
             }
         });
 
+        //Method which go on the level list activity
         goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,15 +203,25 @@ public class CurrentLevel extends AppCompatActivity{
 
     }
 
+    /**
+     * Method which remove the listener on a vehicle on onTouch event
+     * @param vehicle The vehicle to remove the listener on
+     */
     private void removeMove(Vehicle vehicle){
         vehicle.getImg().setOnTouchListener(null);
     }
 
+    /**
+     * Methhod which enable a vehicle to move on the screen
+     * @param vehicle The vehicle to set the listener on
+     */
     @SuppressLint("ClickableViewAccessibility")
     private void move(Vehicle vehicle) {
 
+        //Get the ImageView from the vehicle
         ImageView tmp = vehicle.getImg();
 
+        //Set up the onTouch listener
         vehicle.getImg().setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
@@ -236,22 +270,26 @@ public class CurrentLevel extends AppCompatActivity{
                         break;
                 }
 
+                //If the player has succeed
                 if(lvlGenerator.getLvl().hasWon()){
 
+                    //We remove all move listener
                     for (Vehicle car: lvlGenerator.getLvl().getListOfVehicle()) {
                         removeMove(car);
                     }
 
+                    //Make the button visible
                     goBackButton.setVisibility(View.VISIBLE);
 
+                    //Stop Timer & Music
                     timer.stop();
                     musicFond.stop();
                     musicKlaxon.stop();
 
+                    //Set up a victory message
                     victory.setText("Victoire en " + timer.getText());
 
                     setStars();
-
                     printIntoDataBase();
 
                 }
@@ -260,9 +298,15 @@ public class CurrentLevel extends AppCompatActivity{
         });
     }
 
+    /**
+     * Method which set the right number of stars compared to the time the player has spent to finish the level
+     */
     public void setStars(){
+
+        //Get the current time of the timer et transform it in milliseconds
         long elapsedMillis = SystemClock.elapsedRealtime() - timer.getBase();
 
+        //The player has won 3 stars
         if(elapsedMillis <= 30000){
 
             star1.setImageResource(R.drawable.full_star);
@@ -270,14 +314,20 @@ public class CurrentLevel extends AppCompatActivity{
             star3.setImageResource(R.drawable.full_star);
             MainActivity.player.setNumberStars(MainActivity.player.getNumberStars() + 3);
 
-        } else if(elapsedMillis <= 300000){
+        }
+
+        //The player has won 2 stars
+        else if(elapsedMillis <= 300000){
 
             star1.setImageResource(R.drawable.full_star);
             star2.setImageResource(R.drawable.full_star);
             star3.setImageResource(R.drawable.empty_star);
             MainActivity.player.setNumberStars(MainActivity.player.getNumberStars() + 2);
 
-        } else {
+        }
+
+        //The player has won 1 star
+        else {
 
             star1.setImageResource(R.drawable.full_star);
             star2.setImageResource(R.drawable.empty_star);
@@ -287,7 +337,9 @@ public class CurrentLevel extends AppCompatActivity{
         }
     }
 
-    //Ovverride method
+    /**
+     * Method which pauses all music when app is paused
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -295,12 +347,18 @@ public class CurrentLevel extends AppCompatActivity{
         musicKlaxon.pause();
     }
 
+    /**
+     * Method which start the music when app is resumed
+     */
     @Override
     protected void onResume() {
         super.onResume();
         musicFond.start();
     }
 
+    /**
+     * Method which print into database the player's score
+     */
     private void printIntoDataBase(){
 
         SnapshotParser<Player> parser = new SnapshotParser<Player>() {

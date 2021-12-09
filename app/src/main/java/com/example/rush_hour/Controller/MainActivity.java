@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rush_hour.Model.Player;
 import com.example.rush_hour.R;
@@ -25,12 +23,17 @@ public class MainActivity extends AppCompatActivity {
     private Button rules;
     private Button scores;
 
+    //Player
     public static Player player;
 
     //Firebase
     public FirebaseAuth firebaseAuth;
     public FirebaseUser firebaseUser;
 
+    /**
+     * OnCreate method which setup the entire Activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,13 +48,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bindUI();
-
         firebaseAuthentification();
-
         setListeners();
 
     }
 
+    /**
+     * Method which make the link between user interface and code
+     */
     private void bindUI(){
         playerName = findViewById(R.id.playerName);
         play = findViewById(R.id.play);
@@ -59,14 +63,15 @@ public class MainActivity extends AppCompatActivity {
         scores = findViewById(R.id.scores);
     }
 
-    //Method which set all listeners
+    /**
+     * Method which set up all listeners
+     */
     public void setListeners(){
 
         //Method which go on the second activity where the player can see all levels
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intention = new Intent(MainActivity.this, LevelListActivity.class);
                 startActivity(intention);
             }
@@ -92,21 +97,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Override method relesaed when the user touch the android back
+     */
     @Override
     public void onBackPressed(){
         super.onBackPressed();
     }
 
-    //Ask the user to connect with google
+    /**
+     * Method which enable the player to connect with Google on the first time he launch the app
+     */
     private void firebaseAuthentification(){
+        //User
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
+        //If user don't exists, lauch the google connect Activity
         if(firebaseUser == null){
             startActivity(new Intent(this, SignInActivity.class));
             finish();
             return;
-        } else {
+        }
+        //Set up the view with player's google nickname
+        else {
             playerName.setText(playerName.getText() + firebaseUser.getDisplayName());
             player = new Player(firebaseUser.getDisplayName(), 0);
         }

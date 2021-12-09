@@ -16,10 +16,6 @@ public class Level {
     }
 
     //Getters
-    public int getNumber() {
-        return number;
-    }
-
     public List<Vehicle> getListOfVehicle() {
 
         return listOfVehicle;
@@ -28,11 +24,6 @@ public class Level {
     //Setters
     public void setListOfVehicle(List<Vehicle> listOfVehicle) {
         this.listOfVehicle = listOfVehicle;
-    }
-
-    //Methods
-    public void addVehicleToTheLevel(Vehicle v){
-        this.listOfVehicle.add(v);
     }
 
     //Methods which check if a vehicle can move up taking account of the other vehicle

@@ -14,11 +14,17 @@ public class LevelListActivity extends AppCompatActivity {
 
     //Attributes in Layout
     private TextView welcomeMessage;
+
+    //All Levels Buttons
     private Button lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10;
     private Button lvl11, lvl12, lvl13, lvl14, lvl15, lvl16, lvl17, lvl18, lvl19, lvl20;
     private Button lvl21, lvl22, lvl23, lvl24, lvl25, lvl26, lvl27, lvl28, lvl29, lvl30;
     private Button lvl31, lvl32, lvl33, lvl34, lvl35, lvl36, lvl37, lvl38, lvl39, lvl40;
 
+    /**
+     * OnCreate method which setup the entire Activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Remove title bar
@@ -32,11 +38,12 @@ public class LevelListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_levellist);
 
         bindUI();
-
         setListeners();
-
     }
 
+    /**
+     * Method which make the link between user interface and code
+     */
     private void bindUI(){
         welcomeMessage = findViewById(R.id.welcomeMessage);
 
@@ -84,6 +91,9 @@ public class LevelListActivity extends AppCompatActivity {
         welcomeMessage.setText("Bienvenue " + MainActivity.player.getName());
     }
 
+    /**
+     * Method which set up all listeners
+     */
     public void setListeners(){
 
         setButtonListener(lvl1);
@@ -129,19 +139,25 @@ public class LevelListActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method which set up a listener to go on a specific level
+     * @param button The button which we make the listener on
+     */
     private void setButtonListener(Button button){
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intention = new Intent(LevelListActivity.this, CurrentLevel.class);
+                //Put the name of the level in the extra
                 intention.putExtra("Name of the level", button.getText());
                 startActivity(intention);
-
             }
         });
     }
 
+    /**
+     * Override method relesaed when the user touch the android back
+     */
     @Override
     public void onBackPressed(){
         Intent intention = new Intent(LevelListActivity.this, MainActivity.class);
