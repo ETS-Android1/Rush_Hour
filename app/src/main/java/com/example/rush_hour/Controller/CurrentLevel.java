@@ -165,7 +165,7 @@ public class CurrentLevel extends AppCompatActivity{
             }
         });
 
-        //Add a listener to my database to find if player's name is alreday in the database
+        //Add a listener to my database to find if player's name is already in the database
         myRef.child("scoresDesJoueurs").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -379,8 +379,7 @@ public class CurrentLevel extends AppCompatActivity{
         };
 
         if(!isFound) {
-            Player player = new Player(MainActivity.player.getName(), MainActivity.player.getNumberStars());
-            myRef.child("scoresDesJoueurs").push().setValue(player);
+            myRef.child("scoresDesJoueurs").push().setValue(MainActivity.player);
         } else {
             myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("name").setValue(MainActivity.player.getName());
 

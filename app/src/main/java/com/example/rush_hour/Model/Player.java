@@ -2,6 +2,8 @@ package com.example.rush_hour.Model;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +17,8 @@ public class Player {
     private String id;
 
     //Constructor
-    public Player (String name, int numberStars){
+    public Player (String name){
         this.name = name;
-        this.numberStars = numberStars;
-        this.reverse = -numberStars;
         scoresList = new ArrayList<>();
         initScoresList();
     }
@@ -73,4 +73,14 @@ public class Player {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", numberStars=" + numberStars +
+                ", reverse=" + reverse +
+                ", scoresList=" + scoresList +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }
