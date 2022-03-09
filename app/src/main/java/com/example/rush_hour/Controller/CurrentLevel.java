@@ -116,7 +116,7 @@ public class CurrentLevel extends AppCompatActivity{
         star3 = findViewById(R.id.star3);
         goBackButton = findViewById(R.id.goBackButton);
         constraint = findViewById(R.id.constraint);
-        name_level.setText(getIntent().getStringExtra("Name of the level"));
+        name_level.setText(getIntent().getStringExtra("Name of the level").replace("\n", " "));
         goBackButton.setVisibility(View.GONE);
     }
 
@@ -131,7 +131,7 @@ public class CurrentLevel extends AppCompatActivity{
 
         //Try to have the right method thanks to the extra puted in the intent
         try {
-            method = lvlGenerator.getClass().getMethod(getIntent().getStringExtra("Name of the level").replace(" ", "").toLowerCase());
+            method = lvlGenerator.getClass().getMethod(getIntent().getStringExtra("Name of the level").replace("\n", "").toLowerCase());
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }

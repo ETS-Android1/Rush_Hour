@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -47,49 +47,101 @@
                         android:orientation="horizontal">
 
 
-                        <Button
-                            android:id="@+id/lvl1"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 1"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n1"
+                                app:backgroundTint="#187A31"/>
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl2"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 2"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n2"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl3"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 3"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n3"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 4"
-                            app:backgroundTint="#187A31" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/lvl4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.20"
+                                    android:text="Level\n4"
+                                    app:backgroundTint="#187A31" />
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    app:srcCompat="@drawable/three_empty_stars"/>
+
+                            </LinearLayout>
 
                     </LinearLayout>
 
@@ -98,49 +150,101 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp">
 
-                        <Button
-                            android:id="@+id/lvl5"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 5"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n5"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl6"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 6"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n6"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl7"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 7"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n7"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl8"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 8"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n8"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -150,49 +254,101 @@
                         android:layout_marginTop="20dp"
                         android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/lvl9"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 9"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n9"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl10"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 10"
-                            app:backgroundTint="#187A31" />
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n10"
+                                app:backgroundTint="#187A31" />
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl11"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 11"
-                            app:backgroundTint="#D89C21"/>
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n11"
+                                app:backgroundTint="#D89C21"/>
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl12"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.20"
-                            android:text="Level 12"
-                            app:backgroundTint="#D89C21"/>
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.20"
+                                android:text="Level\n12"
+                                app:backgroundTint="#D89C21"/>
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -201,49 +357,101 @@
                         android:layout_marginTop="20dp"
                         android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/lvl13"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Level 13"
-                            app:backgroundTint="#D89C21"/>
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Level\n13"
+                                app:backgroundTint="#D89C21"/>
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Level 14"
-                            app:backgroundTint="#D89C21"/>
+                        <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Level\n14"
+                                app:backgroundTint="#D89C21"/>
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl15"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Level 15"
-                            app:backgroundTint="#D89C21"/>
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Level\n15"
+                                app:backgroundTint="#D89C21"/>
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
 
                         <Space
                             android:layout_width="2dp"
                             android:layout_height="0dp"/>
 
-                        <Button
-                            android:id="@+id/lvl16"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Level 16"
-                            app:backgroundTint="#D89C21"/>
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/lvl16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Level\n16"
+                                app:backgroundTint="#D89C21"/>
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/three_empty_stars"/>
+
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
