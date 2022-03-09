@@ -15,6 +15,8 @@ import com.example.rush_hour.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     //Attributes in Layout

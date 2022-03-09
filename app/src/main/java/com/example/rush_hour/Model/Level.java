@@ -21,6 +21,10 @@ public class Level {
         return listOfVehicle;
     }
 
+    public int getNumber(){
+        return number;
+    }
+
     //Setters
     public void setListOfVehicle(List<Vehicle> listOfVehicle) {
         this.listOfVehicle = listOfVehicle;

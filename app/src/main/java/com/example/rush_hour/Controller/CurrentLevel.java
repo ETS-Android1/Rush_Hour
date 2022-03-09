@@ -305,6 +305,7 @@ public class CurrentLevel extends AppCompatActivity{
 
         //Get the current time of the timer et transform it in milliseconds
         long elapsedMillis = SystemClock.elapsedRealtime() - timer.getBase();
+        Integer stars = 0;
 
         //The player has won 3 stars
         if(elapsedMillis <= 30000){
@@ -312,7 +313,7 @@ public class CurrentLevel extends AppCompatActivity{
             star1.setImageResource(R.drawable.full_star);
             star2.setImageResource(R.drawable.full_star);
             star3.setImageResource(R.drawable.full_star);
-            MainActivity.player.setNumberStars(MainActivity.player.getNumberStars() + 3);
+            stars = 3;
 
         }
 
@@ -322,7 +323,7 @@ public class CurrentLevel extends AppCompatActivity{
             star1.setImageResource(R.drawable.full_star);
             star2.setImageResource(R.drawable.full_star);
             star3.setImageResource(R.drawable.empty_star);
-            MainActivity.player.setNumberStars(MainActivity.player.getNumberStars() + 2);
+            stars = 2;
 
         }
 
@@ -332,9 +333,12 @@ public class CurrentLevel extends AppCompatActivity{
             star1.setImageResource(R.drawable.full_star);
             star2.setImageResource(R.drawable.empty_star);
             star3.setImageResource(R.drawable.empty_star);
-            MainActivity.player.setNumberStars(MainActivity.player.getNumberStars() + 1);
+            stars = 1;
 
         }
+
+        //Change player scores list
+        MainActivity.player.changeElement(lvlGenerator.getLvl().getNumber() - 1, stars);
     }
 
     /**
@@ -381,14 +385,10 @@ public class CurrentLevel extends AppCompatActivity{
             myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("name").setValue(MainActivity.player.getName());
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("numberStars").setValue(
-                        Math.toIntExact((Long) firebaseDs.child("numberStars").getValue()) + MainActivity.player.getNumberStars());
-                myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("reverse").setValue(
-                        Math.toIntExact((Long) firebaseDs.child("reverse").getValue()) + MainActivity.player.getReverse());
+                myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("numberStars").setValue(MainActivity.player.getNumberStars());
+                myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("reverse").setValue(MainActivity.player.getReverse());
+                myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).child("scoresList").setValue(MainActivity.player.getScoresList());
             }
         }
-
-        //Reset du nombre d'étoiles du joueur
-        MainActivity.player.setNumberStars(0);
     }
 }
