@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         //Set up the view with player's google nickname
         else {
             playerName.setText(playerName.getText() + firebaseUser.getDisplayName());
-            player = new Player(firebaseUser.getDisplayName(), 0);
+            player = new Player(firebaseUser.getDisplayName());
         }
     }
 }

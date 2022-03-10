@@ -61,6 +61,7 @@
                                 app:backgroundTint="#187A31"/>
 
                             <ImageView
+                                android:id="@+id/img1"
                                 android:layout_width="75dp"
                                 android:layout_height="35dp"
                                 android:layout_gravity="center"
