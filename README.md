@@ -1,5 +1,10 @@
 # Rush Hour
 
+![Firebase](https://img.shields.io/static/v1?style=for-the-badge&message=Firebase&color=222222&logo=Firebase&logoColor=FFCA28&label=)
+![Java](https://img.shields.io/static/v1?style=for-the-badge&message=Java&color=007396&logo=Java&logoColor=FFFFFF&label=)
+![Android Studio](https://img.shields.io/static/v1?style=for-the-badge&message=Android+Studio&color=222222&logo=Android+Studio&logoColor=3DDC84&label=)
+![Android](https://img.shields.io/static/v1?style=for-the-badge&message=Android&color=222222&logo=Android&logoColor=3DDC84&label=)
+
 Rush Hour est une application mobile Android développée en Java s'inspirant de jeu de société <a href="https://www.jeuxetcompagnie.fr/rushhour-jeu-reflexion-a-partir-de-8-ans/#:~:text=R%C3%A8gle%20du%20Rush%20Hour%20%3A%20d%C3%A9placez,voiture%20de%20quitter%20l'embouteillage.&text=Restriction%20%3A%20il%20est%20interdit%20de,les%20camions%20bloquant%20le%20passage.">Rush Hour</a> où le but du jeu est de faire sortir une voiture d'un plateau encombré par d'autres voitures et véhicules.
 
 <img src="https://user-images.githubusercontent.com/74766923/157574874-32629979-9dfe-4b96-80ee-703c87f2db24.jpg"/>
