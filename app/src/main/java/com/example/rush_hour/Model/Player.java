@@ -30,7 +30,10 @@ public class Player {
     }
 
     public void changeElement(int index, Integer value){
-        scoresList.set(index, value);
+
+        if(scoresList.get(index) < value) {
+            scoresList.set(index, value);
+        }
     }
 
     //Default constructor
