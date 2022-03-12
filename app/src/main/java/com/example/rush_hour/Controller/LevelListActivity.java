@@ -1,6 +1,7 @@
 package com.example.rush_hour.Controller;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class LevelListActivity extends AppCompatActivity {
@@ -36,9 +38,15 @@ public class LevelListActivity extends AppCompatActivity {
     private Button lvl21, lvl22, lvl23, lvl24, lvl25, lvl26, lvl27, lvl28, lvl29, lvl30;
     private Button lvl31, lvl32, lvl33, lvl34, lvl35, lvl36, lvl37, lvl38, lvl39, lvl40;
 
-    private ImageView img1;
+    //All Levels Stars Images
+    private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9, img10;
+    private ImageView img11, img12, img13, img14, img15, img16, img17, img18, img19, img20;
+    private ImageView img21, img22, img23, img24, img25, img26, img27, img28, img29, img30;
+    private ImageView img31, img32, img33, img34, img35, img36, img37, img38, img39, img40;
+    private List<ImageView> images = new ArrayList<>();
 
-    private DatabaseReference databaseReference;
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://rush-hour-9cbef-default-rtdb.europe-west1.firebasedatabase.app/");
+    private DatabaseReference myRef = db.getReference();
     private DataSnapshot firebaseDs;
 
     /**
@@ -58,8 +66,8 @@ public class LevelListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_levellist);
 
         bindUI();
-        setListeners();
-        connectToFirebase();
+        setListeners(() -> connectToFirebase());
+
     }
 
     /**
@@ -112,12 +120,15 @@ public class LevelListActivity extends AppCompatActivity {
         welcomeMessage.setText("Bienvenue " + MainActivity.player.getName());
 
         img1 = findViewById(R.id.img1);
+        img2 = findViewById(R.id.img2);
+
+        images.add(img1); images.add(img2);
     }
 
     /**
      * Method which set up all listeners
      */
-    public void setListeners(){
+    public void setListeners(Callback callback){
 
         setButtonListener(lvl1);
         setButtonListener(lvl2);
@@ -159,17 +170,9 @@ public class LevelListActivity extends AppCompatActivity {
         setButtonListener(lvl38);
         setButtonListener(lvl39);
         setButtonListener(lvl40);
-    }
-
-    /**
-     * Method which connect to Firebase and setup all stars
-     */
-    private void connectToFirebase(){
-
-        databaseReference = FirebaseDatabase.getInstance("https://rush-hour-9cbef-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
 
         //Add a listener to my database to find if player's name is already in the database
-        databaseReference.child("scoresDesJoueurs").addValueEventListener(new ValueEventListener() {
+        myRef.child("scoresDesJoueurs").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
@@ -180,14 +183,13 @@ public class LevelListActivity extends AppCompatActivity {
                     String uid = ds.child("name").getValue().toString();
                     list.add(uid);
 
-                    Log.e("uid", uid);
-                    Log.e("uid", MainActivity.player.getName());
-
                     //If the player has been found, we memorized the snapshot
                     if(MainActivity.player.getName().compareTo(uid) == 0) {
                         firebaseDs = ds;
                     }
                 }
+
+                callback.callback();
 
             }
 
@@ -196,22 +198,42 @@ public class LevelListActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    /**
+     * Method which connect to Firebase and setup all stars
+     */
+    private void connectToFirebase(){
 
-        //Set query to recover all data
+        if(firebaseDs != null) {
 
-        databaseReference.child("scoresDesJoueurs").child(firebaseDs.getKey()).addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(DataSnapshot dataSnapshot) {
-               Player player = dataSnapshot.getValue(Player.class);
-               System.out.println(player);
-           }
+            //Set query to recover all data
+            myRef.child("scoresDesJoueurs").child(firebaseDs.getKey()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Player player = dataSnapshot.getValue(Player.class);
+                    System.out.println(player);
 
-           @Override
-           public void onCancelled(DatabaseError databaseError) {
-               System.out.println("The read failed: " + databaseError.getCode());
-           }
-       });
+                    List<Integer> scores = player.getScoresList();
+
+                    for (int i = 0; i < scores.toArray().length; i++) {
+                        if(scores.get(i) == 1){
+                            images.get(i).setImageResource(R.drawable.two_empty_stars);
+                        } else if (scores.get(i) == 2){
+                            images.get(i).setImageResource(R.drawable.one_empty_stars);
+                        } else if(scores.get(i) == 3){
+                            images.get(i).setImageResource(R.drawable.no_empty_stars);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
+
+        }
 
     }
 
@@ -239,4 +261,10 @@ public class LevelListActivity extends AppCompatActivity {
         Intent intention = new Intent(LevelListActivity.this, MainActivity.class);
         startActivity(intention);
     }
+}
+
+interface Callback {
+
+    void callback();
+
 }
