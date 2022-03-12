@@ -254,9 +254,8 @@ public class LevelListActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     Player player = dataSnapshot.getValue(Player.class);
-                    System.out.println(player);
-
-                    List<Integer> scores = player.getScoresList();
+                    MainActivity.player.setScoresList(player.getScoresList());
+                    List<Integer> scores = new ArrayList<>(player.getScoresList());
 
                     for (int i = 0; i < scores.toArray().length; i++) {
                         if(scores.get(i) == 1){

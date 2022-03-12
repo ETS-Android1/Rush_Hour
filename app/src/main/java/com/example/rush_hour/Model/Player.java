@@ -36,6 +36,10 @@ public class Player {
         }
     }
 
+    public void setScoresList(List<Integer> scoresList){
+        this.scoresList = scoresList;
+    }
+
     //Default constructor
     public Player(){
         super();
