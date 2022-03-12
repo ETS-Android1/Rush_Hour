@@ -308,7 +308,9 @@ public class CurrentLevel extends AppCompatActivity{
         Integer stars = 0;
 
         //The player has won 3 stars
-        if(elapsedMillis <= 30000){
+        if(elapsedMillis <= ((Math.log(lvlGenerator.getLvl().getNumber() + 1) / Math.log(2)) * 2.8) * 42857){
+
+            System.out.println(((Math.log(lvlGenerator.getLvl().getNumber() + 1) / Math.log(2)) * 2.8) * 42857);
 
             star1.setImageResource(R.drawable.full_star);
             star2.setImageResource(R.drawable.full_star);
@@ -318,7 +320,9 @@ public class CurrentLevel extends AppCompatActivity{
         }
 
         //The player has won 2 stars
-        else if(elapsedMillis <= 300000){
+        else if(elapsedMillis <= (Math.log(lvlGenerator.getLvl().getNumber() + 1) * 2.8) * 60000 * 1.5){
+
+            System.out.println((Math.log(lvlGenerator.getLvl().getNumber() + 1) * 2.8) * 1.5);
 
             star1.setImageResource(R.drawable.full_star);
             star2.setImageResource(R.drawable.full_star);

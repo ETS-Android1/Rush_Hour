@@ -121,8 +121,50 @@ public class LevelListActivity extends AppCompatActivity {
 
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);
+        img3 = findViewById(R.id.img3);
+        img4 = findViewById(R.id.img4);
+        img5 = findViewById(R.id.img5);
+        img6 = findViewById(R.id.img6);
+        img7 = findViewById(R.id.img7);
+        img8 = findViewById(R.id.img8);
+        img9 = findViewById(R.id.img9);
+        img10 = findViewById(R.id.img10);
+        img11 = findViewById(R.id.img11);
+        img12 = findViewById(R.id.img12);
+        img13 = findViewById(R.id.img13);
+        img14 = findViewById(R.id.img14);
+        img15 = findViewById(R.id.img15);
+        img16 = findViewById(R.id.img16);
+        img17 = findViewById(R.id.img17);
+        img18 = findViewById(R.id.img18);
+        img19 = findViewById(R.id.img19);
+        img20 = findViewById(R.id.img20);
+        img21 = findViewById(R.id.img21);
+        img22 = findViewById(R.id.img22);
+        img23 = findViewById(R.id.img23);
+        img24 = findViewById(R.id.img24);
+        img25 = findViewById(R.id.img25);
+        img26 = findViewById(R.id.img26);
+        img27 = findViewById(R.id.img27);
+        img28 = findViewById(R.id.img28);
+        img29 = findViewById(R.id.img29);
+        img30 = findViewById(R.id.img30);
+        img31 = findViewById(R.id.img31);
+        img32 = findViewById(R.id.img32);
+        img33 = findViewById(R.id.img33);
+        img34 = findViewById(R.id.img34);
+        img35 = findViewById(R.id.img35);
+        img36 = findViewById(R.id.img36);
+        img37 = findViewById(R.id.img37);
+        img38 = findViewById(R.id.img38);
+        img39 = findViewById(R.id.img39);
+        img40 = findViewById(R.id.img40);
 
-        images.add(img1); images.add(img2);
+        images.add(img1); images.add(img2); images.add(img3); images.add(img4); images.add(img5); images.add(img6); images.add(img7); images.add(img8);
+        images.add(img9); images.add(img10); images.add(img11); images.add(img12); images.add(img13); images.add(img14); images.add(img15); images.add(img16);
+        images.add(img17); images.add(img18); images.add(img19); images.add(img20); images.add(img21); images.add(img22); images.add(img23); images.add(img24);
+        images.add(img25); images.add(img26); images.add(img27); images.add(img28); images.add(img29); images.add(img30); images.add(img31); images.add(img32);
+        images.add(img33); images.add(img34); images.add(img35); images.add(img36); images.add(img37); images.add(img38); images.add(img39); images.add(img40);
     }
 
     /**
